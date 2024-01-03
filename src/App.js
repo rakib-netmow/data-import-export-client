@@ -1,13 +1,17 @@
 import { useState } from "react";
 import "./App.css";
+import axios from "axios";
 
 function App() {
   const [file, setFile] = useState(null);
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newData = new FormData();
     newData.append("file", file);
-    console.log("submited", newData.get("file"));
+    // console.log("submited", newData.get("file"));
+
+    const res = await axios.post("http://localhost:5000/v1/import", newData);
+    console.log(res);
   };
   return (
     <div className="App">
