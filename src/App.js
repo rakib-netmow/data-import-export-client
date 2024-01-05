@@ -25,6 +25,19 @@ function App() {
         <br />
         <input type="submit" value="import" />
       </form>
+      <br />
+      <br />
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="file"
+          name="file"
+          onChange={(e) => setFile(e.target.files[0])}
+        />
+        <br />
+        <br />
+        <input type="submit" value="import" />
+      </form>
     </div>
   );
 }
